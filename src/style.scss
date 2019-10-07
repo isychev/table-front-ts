@@ -1,0 +1,150 @@
+@import "~react-virtualized/styles.css";
+
+$table-padding: 8px;
+$black: #000;
+$gray-lightest: #fafafa;
+$gray-lighter: #e0e0e0;
+
+.ReactVirtualized__Block {
+  &.loading {
+
+  }
+}
+/* Collection default theme */
+
+.ReactVirtualized__Collection {
+}
+
+.ReactVirtualized__Collection__innerScrollContainer {
+}
+
+/* Grid default theme */
+
+.ReactVirtualized__Grid {
+  &:focus{
+    outline: none;
+  }
+  &.loading {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba($black, .7);
+      z-index: 1;
+    }
+  }
+}
+
+.ReactVirtualized__Grid__innerScrollContainer {
+}
+
+/* Table default theme */
+.ReactVirtualized__Table{
+  opacity: 1;
+  transition: opacity .2s;
+  &.loading {
+    opacity: .3;
+  }
+
+  &__Grid {
+    border-bottom: 1px solid $gray-lighter;
+  }
+  &__headerRow {
+    display: flex;
+    background-color: $gray-lightest;
+    text-transform: none;
+    border-top: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-lighter;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid $gray-lighter;
+  }
+
+  &__button {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -20px;
+      right: -20px;
+    }
+  }
+
+  &__headerTruncatedText {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    max-height: 2.8em;     /* fallback */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-weight: bold;
+  }
+
+  &__headerColumn,
+  &__rowColumn {
+    min-width: 0;
+    padding-left: $table-padding;
+    padding-right: $table-padding;
+    &:last-child{
+      padding-right: 20px;
+    }
+    &:first-child{
+      padding-left: 20px;
+    }
+  }
+  &__rowColumn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid $gray-lighter;
+    height: 100%;
+    align-items: center;
+  }
+  &__headerColumn{
+    border-left: 1px solid $gray-lighter;
+    &-right,
+    &:first-child{
+      border-left:0;
+    }
+  }
+
+  &__headerColumn,
+  &__rowColumn{
+    display: flex;
+    margin: 0;
+    &:first-of-type{
+      margin: 0;
+    }
+    &-right{
+      justify-content: flex-end;
+    }
+    &-center{
+      justify-content: center;
+    }
+  }
+
+
+  &__sortableHeaderColumn {
+    cursor: pointer;
+  }
+
+  &__sortableHeaderIconContainer {
+    display: flex;
+    align-items: center;
+  }
+  &__sortableHeaderIcon {
+    flex: 0 0 24px;
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+  }
+}
